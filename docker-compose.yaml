@@ -10,3 +10,13 @@ services:
       - "8080:8080"
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
+  web:
+    image: severancecalculator.web
+    build:
+      context: .
+      dockerfile: SeveranceCalculator.Web\Dockerfile
+    ports:
+      - "9000:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - CalculatorApiHost=http://api:8080
