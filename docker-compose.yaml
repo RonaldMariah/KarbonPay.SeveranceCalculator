@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  api:
+    image: severancecalculator.api
+    build:
+      context: .
+      dockerfile: SeveranceCalculator.API\Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production

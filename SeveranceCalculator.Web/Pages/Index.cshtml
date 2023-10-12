@@ -1,0 +1,68 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container">
+    <div class="text-center">
+        <form method="POST">
+            <div>
+                <label asp-for="Salary" for="salary">Salary:</label>
+                <input type="text" id="salary" name="salary" autocomplete="off" asp-for="Salary">
+            </div>
+            <div>
+                <label asp-for="EmploymentStartDate" for="employmentStartDate">Employment Start Date:</label>
+                <input type="date" id="employmentStartDate" name="employmentStartDate" autocomplete="off" asp-for="EmploymentStartDate">
+                <span asp-validation-for="EmploymentStartDate"></span>
+            </div>
+            <div>
+                <label asp-for="NumberOfVacationDays" for="numberOfVacationDays">Number of Vacation Days:</label>
+                <input type="text" id="numberOfVacationDays" name="numberOfVacationDays" autocomplete="off" asp-for="NumberOfVacationDays">
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+    <div>
+        @if (Model.SeverancePackage != null)
+        {
+            <h2>Severance Package Details</h2>
+            <table>
+                <tr class="data">
+                    <td>Seniority Premium:</td>
+                    <td class="value">@Model.SeverancePackage.SeniorityPremium</td>
+                </tr>
+                <tr class="data">
+                    <td>Year End Bonus:</td>
+                    <td class="value">@Model.SeverancePackage.YearEndBonus</td>
+                </tr>
+                <tr class="data">
+                    <td>Withholding Tax:</td>
+                    <td class="value">@Model.SeverancePackage.WithholdingTax</td>
+                </tr>
+                <tr class="data">
+                    <td>Vacation Premium:</td>
+                    <td class="value">@Model.SeverancePackage.VacationPremium</td>
+                </tr>
+                <tr class="data">
+                    <td>Vacation Pay:</td>
+                    <td class="value">@Model.SeverancePackage.VacationPay</td>
+                </tr>
+                <tr class="data">
+                    <td>Indemnity:</td>
+                    <td class="value">@Model.SeverancePackage.Indemnity</td>
+                </tr>
+                <tr class="data">
+                    <td>Compensation:</td>
+                    <td class="value">@Model.SeverancePackage.Compensation</td>
+                </tr>
+                <tr class="data">
+                    <td>Total Amount:</td>
+                    <td class="value">@Model.SeverancePackage.TotalAmount</td>
+                </tr>
+            </table>
+        }
+    </div>
+</div>
